@@ -8,20 +8,22 @@ class GameController
   def initialize
     @view = GameView.new
     @score = ScoreController.new
+    @game = Game.new
     @death = false
   end
 
   def splash_screen
     @view.clear_screen
     @view.splash_screen
-    start_game(@view.get_input)
+    @view.get_input
+    start_game
   end
 
-  def start_game()
-    # starts the game
-    until death == true
-      generate_question
-      check_anser(@view.get_input)
+  def start_game
+    until @death == true
+      memory_words = @game.generate_question
+      @view.display_memory_string(memory_words, @game.display_time)
+      check_answer(memory_words, @view.get_input)
     end
   end
 
@@ -30,11 +32,6 @@ class GameController
     #if statement
     death
     #otherwise continue
-  end
-
-
-  def generate_question
-
   end
 
   def current_score
