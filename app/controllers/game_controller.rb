@@ -15,8 +15,12 @@ class GameController
   def splash_screen
     @view.clear_screen
     @view.splash_screen
-    @view.get_input
-    start_game
+    input = gets
+    if input == "\n"
+      start_game
+    else
+      splash_screen
+    end
   end
 
   def start_game
@@ -28,14 +32,12 @@ class GameController
         puts "No score yet."
       end
       memory_words = @game.generate_question
-      @view.display_memory_string(memory_words, )
+      @view.display_memory_string(memory_words)
       sleep(@game.display_time)
       @view.clear_screen
       puts "Type all the words you can remember:"
       answer = @view.get_input
       check_answer(memory_words, answer)
-
-      sleep(3)
     end
     @view.clear_screen
     save_name

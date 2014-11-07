@@ -2,6 +2,7 @@ class GameView
 
   def splash_screen
 
+
     puts %q{
  __  __                   __
 /\ \/\ \                 /\ \
@@ -20,7 +21,9 @@ class GameView
    \ \_\ \_\ \___\ \__\ \__/.\_\ \_____\ \_\ \_\
     \/_/\/_/\/__/ \/__/\/__/\/_/\/____/ \/_/\/_/
     }
-     puts "           Press any key to start game"
+     puts "           Press Enter key to start game"
+
+    # exec("say 'welcome to hack a tack'")
 
     # display_high_scores
   end

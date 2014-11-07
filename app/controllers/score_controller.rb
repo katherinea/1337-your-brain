@@ -27,6 +27,7 @@ class ScoreController
     end
 
     save_score(question_score)
+    question_score
   end
 
   def save_score(question_score)
@@ -40,7 +41,7 @@ class ScoreController
   end
 
   def show_score
-    @view.show_score(@score.score)
+    @score.score
   end
 
   def high_scores
