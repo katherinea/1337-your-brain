@@ -20,11 +20,8 @@ class GameView
    \ \_\ \_\ \___\ \__\ \__/.\_\ \_____\ \_\ \_\
     \/_/\/_/\/__/ \/__/\/__/\/_/\/____/ \/_/\/_/
     }
-    # exec("say 'welcome to hack a tack'")
      puts "           Press any key to start game"
 
-    # pretty intro screen
-    # press any key to play
     # display_high_scores
   end
 
@@ -32,8 +29,11 @@ class GameView
     print "\e[2J"
   end
 
-  def display_memory_string(string)
-
+  def display_memory_string(string, time)
+    puts string
+    sleep(time)
+    self.clear_screen
+    puts "Type all the words you can remember:"
   end
 
   def get_input(message = nil)
