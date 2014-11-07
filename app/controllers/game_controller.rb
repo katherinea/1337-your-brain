@@ -21,31 +21,51 @@ class GameController
 
   def start_game
     until @death == true
+      @view.clear_screen
+      if current_score
+        puts "Your current score is: #{current_score.to_s}"
+      else
+        puts "No score yet."
+      end
       memory_words = @game.generate_question
-      @view.display_memory_string(memory_words, @game.display_time)
-      check_answer(memory_words, @view.get_input)
+      @view.display_memory_string(memory_words, )
+      sleep(@game.display_time)
+      @view.clear_screen
+      puts "Type all the words you can remember:"
+      answer = @view.get_input
+      check_answer(memory_words, answer)
+
+      sleep(3)
     end
+    @view.clear_screen
+    save_name
+    @view.clear_screen
+    show_high_scores
   end
 
-  def check_answer
-    @score += calculate_score
-    #if statement
-    death
+  def check_answer(memory_words, user_input)
+    question_score = @score.calculate_score(memory_words, user_input)
+    if question_score == 0
+      @death = true
+    end
     #otherwise continue
+
   end
 
   def current_score
-
+    @score.show_score
   end
 
-  def high_score
-    #scores = Score.order(:score).limit(3)
-    score = Score.high_score
-    @view.display_highscore(scores)
+  def save_name
+    puts "Sorry you aren't Hackey Enough"
+    puts "        You Lost!!!"
+    name = @view.get_input("Type Your Hacker Name")
+    @score.save_name(name)
   end
 
-  def death
-    @death = true
+  def show_high_scores
+    scores = @score.high_scores
+    @view.display_high_scores(scores)
   end
 
 end

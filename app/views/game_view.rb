@@ -29,11 +29,9 @@ class GameView
     print "\e[2J"
   end
 
-  def display_memory_string(string, time)
+  def display_memory_string(string)
+    puts ":::Remember These Words:::"
     puts string
-    sleep(time)
-    self.clear_screen
-    puts "Type all the words you can remember:"
   end
 
   def get_input(message = nil)
@@ -42,8 +40,11 @@ class GameView
   end
 
   def display_high_scores(scores)
+    puts "Hack Attack High Scores"
+    puts "_______________________"
+    puts ""
     scores.each do |score|
-      puts score
+      puts "#{score.name} : #{score.score}"
     end
   end
 

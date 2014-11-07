@@ -6,6 +6,7 @@ class ScoreController
   def initialize
     @score = Score.new
     @score.score = 0
+    @score.name = "Player"
     @view = ScoreView.new
   end
 
@@ -33,13 +34,17 @@ class ScoreController
     @score.save
   end
 
-  def save_score_with_name(name)
+  def save_name(name)
     @score.name = name
     @score.save
   end
 
   def show_score
     @view.show_score(@score.score)
+  end
+
+  def high_scores
+    Score.order('score DESC').limit(3)
   end
 
 end
