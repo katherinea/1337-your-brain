@@ -14,11 +14,25 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     builder (3.0.4)
+    byebug (2.7.0)
+      columnize (~> 0.3)
+      debugger-linecache (~> 1.2)
+    coderay (1.1.0)
+    columnize (0.3.6)
+    debugger-linecache (1.2.0)
     diff-lcs (1.1.3)
     faker (1.1.2)
       i18n (~> 0.5)
     i18n (0.6.1)
+    method_source (0.8.2)
     multi_json (1.6.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (1.3.3)
+      byebug (~> 2.7)
+      pry (~> 0.10)
     rake (10.3.2)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
@@ -28,6 +42,7 @@ GEM
     rspec-expectations (2.12.0)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.12.0)
+    slop (3.6.0)
     sqlite3 (1.3.7)
     tzinfo (0.3.35)
 
@@ -37,6 +52,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   faker
+  pry-byebug
   rake
   rspec
   sqlite3
